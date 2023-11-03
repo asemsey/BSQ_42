@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnikzad <fnikzad@student.42.fr>            +#+  +:+       +#+        */
+/*   By: asemsey <asemsey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:08:41 by asemsey           #+#    #+#             */
-/*   Updated: 2023/11/03 14:47:50 by fnikzad          ###   ########.fr       */
+/*   Updated: 2023/11/03 15:01:04 by asemsey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // map file should open and close before next map in argv is read
 // read each file into same string but always start over
 
-int	
+// int	
 
 int	main(int argc, char const *argv[])
 {
