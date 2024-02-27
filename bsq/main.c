@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnikzad <fnikzad@student.42.fr>            +#+  +:+       +#+        */
+/*   By: asemsey <asemsey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:08:41 by asemsey           #+#    #+#             */
-/*   Updated: 2024/02/27 15:29:07 by fnikzad          ###   ########.fr       */
+/*   Updated: 2024/02/27 16:24:15 by asemsey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	read_map(t_bsq *game, char *s)
 	game->map[i] = NULL;
 }
 
-void	ft_ptint_map(char **game)
+void	ft_print_map(char **game)
 {
 	int i = 0;
 	int j;
@@ -103,7 +103,7 @@ int	main(int argc, char **argv)
 		write (1, "invalid map\n", 12);
 		exit (1);
 	}
-	ft_ptint_map(game.map);
+	ft_print_map(game.map);
 
 
 	
