@@ -6,7 +6,7 @@
 /*   By: fnikzad <fnikzad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:16:57 by asemsey           #+#    #+#             */
-/*   Updated: 2024/02/27 16:30:27 by fnikzad          ###   ########.fr       */
+/*   Updated: 2024/02/27 16:51:05 by fnikzad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,5 @@ void		solution(t_bsq *bsq, t_point start);void get_realmap(t_bsq *game);
 //errors
 
 int			error0(char **s);
-
+int	error1(char **s);
 #endif
