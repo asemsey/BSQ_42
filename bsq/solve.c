@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solve.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnikzad <fnikzad@student.42.fr>            +#+  +:+       +#+        */
+/*   By: asemsey <asemsey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:17:39 by asemsey           #+#    #+#             */
-/*   Updated: 2024/02/27 16:40:21 by fnikzad          ###   ########.fr       */
+/*   Updated: 2024/02/27 17:11:06 by asemsey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,21 @@ t_point	biggest_square(t_bsq *bsq)
 	t_point	start;
 	int		y;
 	int		x;
-	int		size;
+	int		size[2];
 
-	size = 0;
+	size[0] = 0;
 	y = 0;
 	start = set_point(-1, -1);
-	while (bsq->real_map[y] && y < bsq->height)
+	while (y < bsq->height)
 	{
 		x = 0;
-		while (bsq->real_map[y][x] && x < bsq->width)
+		while (x < bsq->width)
 		{
-			if (get_square(bsq, set_point(y, x)) > size)
+			size[1] = get_square(bsq, set_point(y, x));
+			if (size[1] > size[0])
 			{
 				start = set_point(y, x);
-				size = get_square(bsq, set_point(y, x));
+				size[0] = get_square(bsq, start);
 			}
 			x++;
 		}
@@ -58,17 +59,20 @@ int	is_square(t_bsq *bsq, t_point start, int size)
 	int	y;
 	int	x;
 
-	if (!bsq->real_map[start.y] || !bsq->real_map[start.y][start.x]
+	if (start.y >= bsq->height || start.x >= bsq->width
 		|| start.y + (size - 1) >= bsq->height
 		|| start.x + (size - 1) >= bsq->width)
 		return (0);
 	y = 0;
-	while (bsq->real_map[start.y + y] && start.y + y < bsq->height && y < size)
+	while (start.y + y >= bsq->height && y < size)
 	{
 		x = 0;
-		while (bsq->real_map[start.y + y][start.x + x] && start.x + x < bsq->width && x < size)
+		while (start.x + x < bsq->width && x < size)
+		{
 			if (bsq->real_map[start.y + y][start.x + x] != bsq->empty)
 				return (0);
+			x++;
+		}
 		y++;
 	}
 	return (1);
@@ -90,9 +94,7 @@ int	get_square(t_bsq *bsq, t_point start)
 	while (i <= max_size)
 	{
 		if (!is_square(bsq, start, i))
-		{
 			break ;
-		}
 		i++;
 	}
 	return (i - 1);
@@ -111,11 +113,10 @@ void	solution(t_bsq *bsq, t_point start)
 		return ;
 	map = bsq->real_map;
 	y = 0;
-	while (map[start.y + y] && start.y + y < bsq->height && y < size)
+	while (start.y + y < bsq->height && y < size)
 	{
 		x = 0;
-		while (map[start.y + y][start.x + x] && start.x + x < bsq->width
-			&& x < size)
+		while (start.x + x < bsq->width && x < size)
 			map[start.y + y][start.x + x++] = bsq->full;
 		y++;
 	}
