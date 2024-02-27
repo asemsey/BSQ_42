@@ -6,7 +6,7 @@
 /*   By: fnikzad <fnikzad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:08:41 by asemsey           #+#    #+#             */
-/*   Updated: 2024/02/27 16:24:08 by fnikzad          ###   ########.fr       */
+/*   Updated: 2024/02/27 16:27:20 by fnikzad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	read_map(t_bsq *game, char *s)
 	game->width = ft_new_strlen(game->map[1]);
 }
 
-void	ft_ptint_map(char **game)
+void	ft_print_map(char **game)
 {
 	int i = 0;
 	int j;
@@ -105,10 +105,9 @@ int	main(int argc, char **argv)
 		write (1, "invalid map\n", 12);
 		exit (1);
 	}
-	ft_ptint_map(game.real_map);
-	printf("%d\n", game.height);
-	printf("%d\n", game.width);
-	
+	ft_print_map(game.map);
+
+
 	
 	// file = 1;
 	if (argc < 2)
