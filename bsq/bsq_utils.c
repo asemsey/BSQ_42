@@ -6,12 +6,20 @@
 /*   By: fnikzad <fnikzad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:16:03 by asemsey           #+#    #+#             */
-/*   Updated: 2024/02/27 15:23:15 by fnikzad          ###   ########.fr       */
+/*   Updated: 2024/02/27 16:03:26 by fnikzad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
 
+t_point	set_point(int y, int x)
+{
+	t_point	p;
+
+	p.y = y;
+	p.x = x;
+	return (p);
+}
 
 // char	*ft_strjoin(char *s1, const char *s2)
 // {
