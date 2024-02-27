@@ -6,7 +6,7 @@
 /*   By: asemsey <asemsey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:16:57 by asemsey           #+#    #+#             */
-/*   Updated: 2024/02/27 14:30:41 by asemsey          ###   ########.fr       */
+/*   Updated: 2024/02/27 15:22:11 by asemsey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
+#include "./gnl/get_next_line.h"
 
 typedef struct s_point
 {
@@ -33,8 +35,11 @@ typedef struct s_bsq
 	char	obs;
 }	t_bsq;
 
-size_t		ft_strlen(const char *s);
-char		*ft_strjoin(char *s1, const char *s2);
 char		**ft_split(char const *s, char c);
+char	*ft_strdup(const char *s1);
+void	get_height(t_bsq *game, char *s);
+int ft_new_strlen(char *s);
+void	read_map(t_bsq *game, char *s);
+
 
 #endif
