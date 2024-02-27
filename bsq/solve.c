@@ -6,7 +6,7 @@
 /*   By: fnikzad <fnikzad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:17:39 by asemsey           #+#    #+#             */
-/*   Updated: 2024/02/27 16:26:01 by fnikzad          ###   ########.fr       */
+/*   Updated: 2024/02/27 16:40:21 by fnikzad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,10 @@ int	is_square(t_bsq *bsq, t_point start, int size)
 		|| start.x + (size - 1) >= bsq->width)
 		return (0);
 	y = 0;
-	while (bsq->real_map[start.y + y] && start.y + y < bsq->height)
+	while (bsq->real_map[start.y + y] && start.y + y < bsq->height && y < size)
 	{
 		x = 0;
-		while (bsq->real_map[start.y + y][start.x + x] && start.x + x < bsq->width)
+		while (bsq->real_map[start.y + y][start.x + x] && start.x + x < bsq->width && x < size)
 			if (bsq->real_map[start.y + y][start.x + x] != bsq->empty)
 				return (0);
 		y++;
@@ -90,7 +90,9 @@ int	get_square(t_bsq *bsq, t_point start)
 	while (i <= max_size)
 	{
 		if (!is_square(bsq, start, i))
+		{
 			break ;
+		}
 		i++;
 	}
 	return (i - 1);

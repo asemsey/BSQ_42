@@ -6,7 +6,7 @@
 /*   By: fnikzad <fnikzad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:08:41 by asemsey           #+#    #+#             */
-/*   Updated: 2024/02/27 16:27:20 by fnikzad          ###   ########.fr       */
+/*   Updated: 2024/02/27 16:32:42 by fnikzad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	get_height(t_bsq *game, char *s)
 	fd = open (s, O_RDONLY);
 	if (fd < 0)
 	{
-		write (2, "Error\n", 1);
+		write (2, "Error\n", 6);
 		exit (1);
 	}
 	while ((line = get_next_line(fd)) != NULL)
@@ -53,7 +53,7 @@ void	read_map(t_bsq *game, char *s)
 	fd = open(s, O_RDONLY);
 	if (fd < 0)
 	{
-		write (2, "Error\n", 1);
+		write (2, "Error\n", 6);
 		exit (1);
 	}
 	get_height(game, s);
@@ -105,8 +105,12 @@ int	main(int argc, char **argv)
 		write (1, "invalid map\n", 12);
 		exit (1);
 	}
-	ft_print_map(game.map);
-
+	
+	if (solve(&game) == -1)
+	{
+		write(2, "Error\n", 6);
+		exit (1);
+	}
 
 	
 	// file = 1;
