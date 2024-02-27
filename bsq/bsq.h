@@ -6,7 +6,7 @@
 /*   By: asemsey <asemsey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:16:57 by asemsey           #+#    #+#             */
-/*   Updated: 2024/02/27 15:22:11 by asemsey          ###   ########.fr       */
+/*   Updated: 2024/02/27 15:32:14 by asemsey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_bsq
 	char	obs;
 }	t_bsq;
 
+t_point		set_point(int y, int x);
 char		**ft_split(char const *s, char c);
 char	*ft_strdup(const char *s1);
 void	get_height(t_bsq *game, char *s);

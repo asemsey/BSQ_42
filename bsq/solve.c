@@ -6,7 +6,7 @@
 /*   By: asemsey <asemsey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:17:39 by asemsey           #+#    #+#             */
-/*   Updated: 2024/02/27 15:20:38 by asemsey          ###   ########.fr       */
+/*   Updated: 2024/02/27 15:36:06 by asemsey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,28 @@
 
 t_point	solve(t_bsq *bsq)
 {
-	return (bsq->size);
-	// incomplete
+	t_point	start;
+	int		y;
+	int		x;
+	int		size;
+
+	size = 0;
+	y = 0;
+	while (bsq->map[y] && y < bsq->height)
+	{
+		x = 0;
+		while (bsq->map[y][x] && x < bsq->width)
+		{
+			if (get_square(bsq, set_point(y, x)) > size)
+			{
+				start = set_point(y, x);
+				size = get_square(bsq, set_point(y, x));
+			}
+			x++;
+		}
+		y++;
+	}
+	return (start);
 }
 
 // check if there are obstacles in the given square

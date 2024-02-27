@@ -3,15 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   bsq_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnikzad <fnikzad@student.42.fr>            +#+  +:+       +#+        */
+/*   By: asemsey <asemsey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:16:03 by asemsey           #+#    #+#             */
-/*   Updated: 2024/02/27 14:56:53 by fnikzad          ###   ########.fr       */
+/*   Updated: 2024/02/27 15:31:37 by asemsey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
 
+t_point	set_point(int y, int x)
+{
+	t_point	p;
+
+	p.y = y;
+	p.x = x;
+	return (p);
+}
 
 // char	*ft_strjoin(char *s1, const char *s2)
 // {
