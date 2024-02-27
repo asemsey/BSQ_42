@@ -6,8 +6,23 @@
 /*   By: fnikzad <fnikzad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 15:11:26 by fnikzad           #+#    #+#             */
-/*   Updated: 2024/02/27 15:11:36 by fnikzad          ###   ########.fr       */
+/*   Updated: 2024/02/27 15:27:53 by fnikzad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#inclu
+#include "bsq.h"
+
+int	error0(char **s)
+{
+	int i = 0;
+	size_t j = ft_strlen(s[0]);
+	while (s[i])
+	{
+		if (j != ft_strlen(s[i]))
+		{
+			return (0);
+		}
+		i++;
+	}
+	return (1);
+}

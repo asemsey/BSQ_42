@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bsq.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asemsey <asemsey@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fnikzad <fnikzad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:16:57 by asemsey           #+#    #+#             */
-/*   Updated: 2024/02/27 15:22:11 by asemsey          ###   ########.fr       */
+/*   Updated: 2024/02/27 15:26:20 by fnikzad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,10 @@ char	*ft_strdup(const char *s1);
 void	get_height(t_bsq *game, char *s);
 int ft_new_strlen(char *s);
 void	read_map(t_bsq *game, char *s);
+
+
+//errors
+int	error0(char **s);
 
 
 #endif
