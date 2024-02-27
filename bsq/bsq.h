@@ -6,7 +6,7 @@
 /*   By: fnikzad <fnikzad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:16:57 by asemsey           #+#    #+#             */
-/*   Updated: 2024/02/27 16:04:15 by fnikzad          ###   ########.fr       */
+/*   Updated: 2024/02/27 16:19:30 by fnikzad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_point
 typedef struct s_bsq
 {
 	char	**map;
+	char	**real_map;
 	int		height;
 	int		width;
 	t_point	size;
@@ -41,7 +42,7 @@ char	*ft_strdup(const char *s1);
 void	get_height(t_bsq *game, char *s);
 int ft_new_strlen(char *s);
 void	read_map(t_bsq *game, char *s);
-
+void get_realmap(t_bsq *game);
 
 //errors
 int	error0(char **s);
