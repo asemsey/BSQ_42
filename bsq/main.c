@@ -6,7 +6,7 @@
 /*   By: fnikzad <fnikzad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:08:41 by asemsey           #+#    #+#             */
-/*   Updated: 2024/02/27 17:11:00 by fnikzad          ###   ########.fr       */
+/*   Updated: 2024/02/28 10:54:46 by fnikzad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,15 +92,13 @@ void	ft_print_map(char **game)
 
 int	main(int argc, char **argv)
 {
+	int		i = 1;
+	t_bsq	game;
 	if (argc < 2)
 	{
-		write(1, "No map\n", 7);
+		write(2, "No map\n", 7);
+		return (1);
 	}
-	// int		file;
-	int i = 1;
-	// char	*map;
-	t_bsq	game;
-	
 	while (argv[i])
 	{
 		read_map(&game, argv[i]);
@@ -110,28 +108,13 @@ int	main(int argc, char **argv)
 	get_realmap(&game);
 	if (error0(game.real_map) == 0 || error1(game.real_map) == 0)
 	{
-		write (1, "invalid map\n", 12);
+		write (2, "invalid map\n", 12);
 		exit (1);
 	}
-	
-	// if (solve(&game) == -1)
-	// {
-	// 	write(2, "Error\n", 6);
-	// 	exit (1);
-	// }
-
-	
-	// file = 1;
-
-	// while (argv[file])
-	// {
-	// 	// open file
-	// 	// read it to map
-	// 	// check valid map
-	// 	// solve(map)
-	// 	// close file
-	// 	// free map
-	// 	file++;
-	// }
+	if (solve(&game) == -1)
+	{
+		write(2, "Error\n", 6);
+		exit (1);
+	}
 	return (0);
 }
