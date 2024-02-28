@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnikzad <fnikzad@student.42.fr>            +#+  +:+       +#+        */
+/*   By: asemsey <asemsey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:08:41 by asemsey           #+#    #+#             */
-/*   Updated: 2024/02/28 10:54:46 by fnikzad          ###   ########.fr       */
+/*   Updated: 2024/02/28 11:05:12 by asemsey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	get_height(t_bsq *game, char *s)
 		i++;
 	}
 	game->height = i - 1;
+	close(fd);
 }
 
 void	read_map(t_bsq *game, char *s)
@@ -72,6 +73,7 @@ void	read_map(t_bsq *game, char *s)
 	game->full = game->map[0][3];
 	game->empty = game->map [0][1];
 	game->obs = game->map[0][2];
+	close(fd);
 }
 
 void	ft_print_map(char **game)
@@ -101,20 +103,20 @@ int	main(int argc, char **argv)
 	}
 	while (argv[i])
 	{
-		read_map(&game, argv[i]);
-		i++;
-	}
-	i = 0;
-	get_realmap(&game);
-	if (error0(game.real_map) == 0 || error1(game.real_map) == 0)
-	{
-		write (2, "invalid map\n", 12);
-		exit (1);
-	}
-	if (solve(&game) == -1)
-	{
-		write(2, "Error\n", 6);
-		exit (1);
+		read_map(&game, argv[i++]);
+		get_realmap(&game);
+		if (error0(game.real_map) == 0 || error1(game.real_map) == 0)
+		{
+			write (2, "invalid map\n", 12);
+			continue ;
+		}
+		if (solve(&game) == -1)
+		{
+			write(2, "Error\n", 6);
+			exit (1);
+		}
+		if (i < argc)
+			write(1, "\n", 1);
 	}
 	return (0);
 }
