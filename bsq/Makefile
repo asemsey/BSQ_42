@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fnikzad <fnikzad@student.42.fr>            +#+  +:+       +#+         #
+#    By: asemsey <asemsey@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/03 14:02:11 by asemsey           #+#    #+#              #
-#    Updated: 2024/02/27 15:26:32 by fnikzad          ###   ########.fr        #
+#    Updated: 2024/02/28 11:46:07 by asemsey          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,16 +18,16 @@ GNL = $(GNL_PATH)/get_next_line.a
 
 all: $(EXE)
 
-fclean: clean
+$(EXE): $(GNL) $(SRCS) 
+	cc $(CFLAGS) $(GNL) $(SRCS) -o $(EXE)
 
 $(GNL): 
 	make all -C $(GNL_PATH) 
 
-$(EXE): $(GNL) $(SRCS) 
-	cc $(CFLAGS) $(GNL) $(SRCS) -o $(EXE)
-
 clean:
 	make fclean -C $(GNL_PATH) 
 	rm -f $(EXE)
+
+fclean: clean
 
 re: fclean all

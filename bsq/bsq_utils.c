@@ -3,14 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   bsq_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnikzad <fnikzad@student.42.fr>            +#+  +:+       +#+        */
+/*   By: asemsey <asemsey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:16:03 by asemsey           #+#    #+#             */
-/*   Updated: 2024/02/27 16:03:26 by fnikzad          ###   ########.fr       */
+/*   Updated: 2024/02/28 11:54:41 by asemsey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
+
+int	ft_new_strlen(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s && s[i] && s[i] != '\n')
+		i++;
+	return (i);
+}
+
+void	ft_print_map(char **game)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (game[i])
+	{
+		j = 0;
+		while (game[i][j])
+		{
+			write(1, &game[i][j], 1);
+			j++;
+		}
+		i++;
+	}
+}
 
 t_point	set_point(int y, int x)
 {
@@ -21,34 +49,6 @@ t_point	set_point(int y, int x)
 	return (p);
 }
 
-// char	*ft_strjoin(char *s1, const char *s2)
-// {
-// 	char	*s;
-// 	size_t	i;
-// 	size_t	j;
-
-// 	i = 0;
-// 	s = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-// 	if (!s || (!s1 && !s2))
-// 		return (NULL);
-// 	while (s1 && s1[i] != '\0')
-// 	{
-// 		s[i] = s1[i];
-// 		i++;
-// 	}
-// 	j = 0;
-// 	while (s2 && s2[j] != '\0')
-// 	{
-// 		s[i + j] = s2[j];
-// 		j++;
-// 	}
-// 	s[i + j] = '\0';
-// 	if (s1)
-// 		free(s1);
-// 	return (s);
-// }
-
-
 char	*ft_strdup(const char *s1)
 {
 	char	*dup;
@@ -57,10 +57,10 @@ char	*ft_strdup(const char *s1)
 
 	l = ft_strlen(s1);
 	i = 0;
-	dup = (char *) malloc (sizeof(char) * (l + 1));
+	dup = (char *)malloc(sizeof(char) * (l + 1));
 	if (!dup)
 		return (0);
-	while (s1[i] != 0)
+	while (s1[i])
 	{
 		dup[i] = s1[i];
 		i++;
@@ -68,4 +68,3 @@ char	*ft_strdup(const char *s1)
 	dup[i] = 0;
 	return (dup);
 }
-

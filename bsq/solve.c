@@ -6,7 +6,7 @@
 /*   By: asemsey <asemsey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:17:39 by asemsey           #+#    #+#             */
-/*   Updated: 2024/02/28 10:50:23 by asemsey          ###   ########.fr       */
+/*   Updated: 2024/02/28 11:46:50 by asemsey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ int	solve(t_bsq *bsq)
 
 	start = biggest_square(bsq);
 	if (start.y < 0 || start.x < 0)
+	{
+		write(2, "Error\n", 6);
 		return (-1);
+	}
 	solution(bsq, start);
 	ft_print_map(bsq->real_map);
 	return (0);
@@ -60,7 +63,8 @@ int	is_square(t_bsq *bsq, t_point start, int size)
 	int	x;
 
 	if (start.y >= bsq->height || start.x >= bsq->width
-		|| start.y + (size - 1) >= bsq->height || bsq->real_map[start.y][start.x] == bsq->obs
+		|| start.y + (size - 1) >= bsq->height
+		|| bsq->real_map[start.y][start.x] == bsq->obs
 		|| start.x + (size - 1) >= bsq->width)
 		return (0);
 	y = 0;

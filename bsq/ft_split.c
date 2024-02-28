@@ -6,7 +6,7 @@
 /*   By: asemsey <asemsey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:56:39 by fnikzad           #+#    #+#             */
-/*   Updated: 2023/11/03 15:02:46 by asemsey          ###   ########.fr       */
+/*   Updated: 2024/02/28 11:39:48 by asemsey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,16 +75,13 @@ static int	write_all(char **strs, const char *s, char c)
 	return (-1);
 }
 
-static void	free_all(char **strs)
+void	free_all(char **strs)
 {
 	int	i;
 
 	i = 0;
-	while (strs[i])
-	{
-		free(strs[i]);
-		i++;
-	}
+	while (strs && strs[i])
+		free(strs[i++]);
 	free(strs);
 }
 

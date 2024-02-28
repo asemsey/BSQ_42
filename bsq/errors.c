@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnikzad <fnikzad@student.42.fr>            +#+  +:+       +#+        */
+/*   By: asemsey <asemsey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 15:11:26 by fnikzad           #+#    #+#             */
-/*   Updated: 2024/02/27 16:53:44 by fnikzad          ###   ########.fr       */
+/*   Updated: 2024/02/28 11:55:47 by asemsey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 int	error0(char **s)
 {
-	int i = 0;
-	size_t j = ft_strlen(s[0]);
+	int		i;
+	size_t	j;
+
+	i = 0;
+	j = ft_strlen(s[0]);
 	while (s[i])
 	{
 		if (j != ft_strlen(s[i]))
@@ -29,14 +32,17 @@ int	error0(char **s)
 
 int	error1(char **s)
 {
-	int i = 0;
-	int j;
+	int	i;
+	int	j;
+
+	i = 0;
 	while (s[i])
 	{
 		j = 0;
 		while (s[i][j])
 		{
-			if (s[i][j] != '.' && s[i][j] != 'o' &&s[i][j] != '\n' && s[i][j] != '\0')
+			if (s[i][j] && s[i][j] != '.' && s[i][j] != 'o'
+				&& s[i][j] != '\n')
 				return (0);
 			j++;
 		}
