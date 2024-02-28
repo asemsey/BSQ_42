@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asemsey <asemsey@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fnikzad <fnikzad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:08:41 by asemsey           #+#    #+#             */
-/*   Updated: 2024/02/28 11:05:12 by asemsey          ###   ########.fr       */
+/*   Updated: 2024/02/28 11:28:39 by fnikzad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void	get_height(t_bsq *game, char *s)
 	}
 	while ((line = get_next_line(fd)) != NULL)
 	{
-		free (line);
 		i++;
+		free (line);
 	}
 	game->height = i - 1;
 	close(fd);
@@ -92,6 +92,17 @@ void	ft_print_map(char **game)
 	}
 }
 
+void ft_free(char **s)
+{
+	int i = 0;
+	while (s && s[i])
+	{
+		free (s[i]);
+		i++;
+	}
+	free (s);
+}
+
 int	main(int argc, char **argv)
 {
 	int		i = 1;
@@ -115,6 +126,7 @@ int	main(int argc, char **argv)
 			write(2, "Error\n", 6);
 			exit (1);
 		}
+		ft_free (game.real_map);
 		if (i < argc)
 			write(1, "\n", 1);
 	}
